@@ -12,6 +12,7 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import expo.modules.image.svg.SVGSoftwareLayerSetter;
 
 public class ExpoImageManager extends SimpleViewManager<ImageView> {
   private static final String REACT_CLASS = "ExpoImage";
@@ -42,6 +43,7 @@ public class ExpoImageManager extends SimpleViewManager<ImageView> {
 
     mRequestManager
         .load(sourceMap.getString(SOURCE_URI_KEY))
+        .addListener(new SVGSoftwareLayerSetter())
         .into(view);
   }
 
